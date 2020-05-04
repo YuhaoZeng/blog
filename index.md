@@ -1,7 +1,7 @@
 ## Welcome to My Blog
 
 # Blog
-1. [Learing to See in the Dark](https://github.com/YuhaoZeng/blog/blob/master/learning2seeinthedark.html)
+1. [Learing to See in the Dark](https://github.com/YuhaoZeng/blog/blob/master/learning_to_see_in_the_dark.md)
 
 # Bug
 
