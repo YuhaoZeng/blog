@@ -1,10 +1,10 @@
 ## Welcome to My Blog
 
 # Blog
-1. [Learing to See in the Dark](https://github.com/YuhaoZeng/blog/blob/master/learning_to_see_in_the_dark.md)
+1. [Learing to See in the Dark](https://github.com/YuhaoZeng/blog/blob/master/paper/learning_to_see_in_the_dark.md)
 
 # Bug
-
+1. [scipy.imread is none](https://github.com/YuhaoZeng/blog/blob/master/bug/imread_none.md)
 
 ## Welcome to GitHub Pages
 
