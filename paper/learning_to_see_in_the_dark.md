@@ -8,7 +8,7 @@ CVPR 2018
 
 ## abstract
 
-针对低光照和低动态范围实际的网络，raw data作为输入，可以替代大部分pipeline，也提出了新的dataset。
+针对低光照和低动态范围实现的网络，raw data作为输入，可以替代大部分pipeline，也提出了新的dataset。
 
 
 
