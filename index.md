@@ -4,7 +4,7 @@ My main research interest is ISP(image signal processing), I will write about pa
 
 ## Paper
 1. [Learing to See in the Dark](https://github.com/YuhaoZeng/blog/blob/master/paper/learning_to_see_in_the_dark.md)
-2. [CycleIsp: Real Image Restoration via Improved Data Synthesis]((https://github.com/YuhaoZeng/blog/blob/master/paper/CycleISP.md)
+2. [CycleIsp: Real Image Restoration via Improved Data Synthesis](https://github.com/YuhaoZeng/blog/blob/master/paper/CycleISP.md)
 
 ## Bug
 1. [scipy.imread is none](https://github.com/YuhaoZeng/blog/blob/master/bug/imread_none.md)
