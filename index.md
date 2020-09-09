@@ -10,7 +10,7 @@ My main research interest is ISP(image signal processing), I will write about pa
 1. [scipy.imread is none](https://github.com/YuhaoZeng/blog/blob/master/bug/imread_none.md)
 
 ## PyTorch
-1. [DataParallel and DistributedDataParallel](https://github.com/YuhaoZeng/blog/blob/master/Pytorch/Pytorch DataParallel and DistributedDataParallel.md)
+1. [DataParallel and DistributedDataParallel](https://github.com/YuhaoZeng/blog/blob/master/Pytorch/Pytorch%20DataParallel%20and%20DistributedDataParallel.md)
 
 
 
