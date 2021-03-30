@@ -5,8 +5,9 @@
 python 3.7
 pytorch 1.4.0
 
-
-
+### 2021.3.30更新
+知乎有一篇不错的教程和分析，可以参考
+[[原创][深度][PyTorch] DDP系列第一篇：入门教程](https://zhuanlan.zhihu.com/p/178402798)
 ## DataParallel
 
 DataParallel是官方最早提供的一个库，使用非常简单，一行就够了
