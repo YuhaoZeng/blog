@@ -32,4 +32,4 @@ JDD-S的任务和burst image restoration的任务，后者介绍的比较详细�
 
 ### D.Intra-Fram Module
 
-借鉴了(这篇文章)[https://arxiv.org/abs/1903.07291]
+借鉴了[Semantic Image Synthesis with Spatially-Adaptive Normalization, CVPR2019](https://arxiv.org/abs/1903.07291)的思想
