@@ -14,6 +14,12 @@
 
 ## Related Work
 
-JDD-S的任务和burst image restoration的任务，后者介绍的比较详细，可以看原文
+JDD-S的任务和burst image restoration的任务，后者介绍的比较详细，可以看原文。
 
 ## Method
+
+### A.问题建模
+
+真实图片一般不只有高斯噪声，在raw域上有高斯泊松噪声，本文建模为高斯泊松噪声并等效替换为异方差分布高斯噪声。
+
+### B.绿通道先验
