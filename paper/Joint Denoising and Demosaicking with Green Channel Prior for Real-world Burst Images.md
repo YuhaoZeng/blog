@@ -32,4 +32,4 @@ JDD-S的任务和burst image restoration的任务，后者介绍的比较详细�
 
 ### D.Intra-Fram Module
 
-借鉴了[Semantic Image Synthesis with Spatially-Adaptive Normalization, CVPR2019](https://arxiv.org/abs/1903.07291)的思想
+借鉴了[Semantic Image Synthesis with Spatially-Adaptive Normalization, CVPR2019](https://arxiv.org/abs/1903.07291)的思想，绿通道提取到的信息以系数gamma与偏置beta与原始特征进行点乘，最后得到的特征图再并行通过一个spatial attention和channel attention，得到最后的特征图。这里借鉴的原始论文是做语义图像生成的，给出的先验也不是绿色通道，而是语义图像，是一种利用额外的输入作为权重先验的normalization，可以理解为原始的BN层中的gamma和beta从一个单独的vector变成了包含空间新的的tensor，但一些low-level任务中，BN层的使用很少，这个方法效果如何有待验证
