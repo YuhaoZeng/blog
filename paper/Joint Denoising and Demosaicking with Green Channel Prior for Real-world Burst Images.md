@@ -50,7 +50,7 @@ JDD-S的任务和burst image restoration的任务，后者介绍的比较详细�
 
 ## Experiment
 
-burst数据集的获取利用了视频数据集Vimeo-90K和[Unprocessing](https://people.csail.mit.edu/tfxue/papers/cvpr2019_unprocess.pdf)的方式获得，对得到的raw图片加入噪声，采用RGGB的bayer pattern。每次输入5帧图片并去中间帧作为参考帧，噪声的level设置在sigma_s为10^-4~10^-2，sigma_r为10^-3~10^-1.5，这个level设置其实不算很高。
+burst数据集的获取利用了视频数据集Vimeo-90K和[Unprocessing](https://people.csail.mit.edu/tfxue/papers/cvpr2019_unprocess.pdf)的方式获得，对得到的raw图片加入噪声，采用RGGB的bayer pattern。每次输入5帧图片并去中间帧作为参考帧，噪声的level设置在sigma_s为10^-4-10^-2，sigma_r为10^-3-10^-1.5，这个level设置其实不算很高。
 
 ### Ablation Study
 
