@@ -23,3 +23,46 @@ AAAI，2021
 作者认为，lamda反应了y_j相较于理论真实图像z_j的不确定程度，alpha和beta_j可以解释为2alpha观察和2beta的样本平方偏差（这部分我不太理解，应该是统计里的知识），这两个值的取值参考了[这篇文章，NIPS2019](https://arxiv.org/abs/1908.11314)。
 
 总结一下，采样过程可以分为两步，第一步，根据alpha，beta_j，y_j和lambda采样得到了一组z和sigma_j，这是高斯分布的均值和方差。第二步，根据这个均值和方差，采样得到一个特定的x_j，这样就生成了一组x_j和z_j的pair。
+
+### Maximizing ELBO
+
+主要是为了能够训练网络提出了loss，这一过程是通过计算marginal log-likelihood实现的。这一部分的推导比较复杂，详细的建议看论文原文和其主要的参考文章[变分编码器](https://arxiv.org/abs/1312.6114)
+
+值得注意的是作者在这里对ELBO loss进行了分析，在lamda很大时，该loss会收敛为MSE loss，只关注重建情况却忽略了gt图片的不真实性，这也就解释了为什么其他几项正则化是需要的。
+
+在测试过程中需要的图像是网络输出的y^，噪声图则根据分布定义获得。
+
+### Corrupted Input as a Weakly Informative Prior
+
+受到mosaic2mosaic和noise2noise两篇论文的启发，作者打算用来x_j~替换y_j，但是这可能导致网络学习全等变换。因此，作者把x_j变为其邻域内的随机一个点。但在边缘复杂的区域这可能导致很高的数值变化，因此作者根据这个变换后的点是否落在x_j的2sigma_j邻域来判断是否计算loss，如果超过了邻域范围，也就是该点像素值变化很大，那么就不计算loss，反之则进行计算。
+
+## Illustrative Experimental Results
+
+### Network Architecture
+
+网络的目的是以x为输入，z为输出。当然根据公式推导，线性插值的部分被包含在网络里了，z也不是真正的z，实际输出是y，lambda，alpha和beta四个参数，每个参数是和原图尺寸相同的3channel输出。网络结构则是上下采样+GRDB+skip connection的结构，比较简单可以看原文。
+
+### Experiments on Synthetic Datasets
+
+先是在sRGB图片上加噪声，不过加入的噪声不是全局同方差高斯，而是随着空间改变的（这个和上面提到额NIPS2019文章一样）。网络训练用了DIV2K和Flickr2K，其他参数可以看论文。
+
+结果上来讲，网络的提升大概在0.2-1db不等，在高噪声图片上的提升比较明显。
+
+### Experiments on Realistic Raw Data
+
+经典MSR dataset，linear和sRGB域都做了，提升比较有限，0.2db左右。
+
+### Fine-tuning Out-of-distribution Input
+
+作者在不同的噪声模型上做了实验，主要证明了不同模型的泛化性能
+
+### Ablation Study
+
+（1）ELBO vs MSE
+主要是证明了ELBO的正则化项会限制网络学到有缺陷的gt图片，从而达到更高的PSNR峰值。
+（2）mask
+在fine-tune过程中加入mask map可以有效的避免网络造成边缘模糊。
+
+## Summary
+
+作者针对目前的网络中获得的gt不够好的问题，采用了两阶段的退化过程来建模真实的图片，中间参考了不少变分编码器的内容。论文的思路还是很新颖的，为了能够训练也对loss做了特别的设计，不过实验部分看起来不是很足够，在加噪声的环节还是没有完全遵循真实噪声的情况。总体上还是很值得学习的。
